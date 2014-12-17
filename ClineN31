@@ -1,0 +1,142 @@
+import java.util.Scanner;
+
+/**
+ *
+ * @author Nathan
+ */
+public class morsecodeassessment	{
+public static void main (String [] args)
+	{
+	  int choice = 1;
+
+        Scanner morseorenglish = new Scanner(System.in);
+
+            System.out.println ("Choose either 1 or 2: (Type '1' for choice 1)");
+
+            System.out.println ("(1) Translate your English sentence into morse code");
+
+            System.out.println ("(2) Translate your morse code into an English sentence");
+
+        choice = morseorenglish.nextInt();
+
+         
+
+        if (choice==1)
+
+        {
+
+            Scanner englishtomorse = new Scanner(System.in);
+
+                System.out.println ("Please enter an original sentence in English.");
+
+                String english = englishtomorse.nextLine();
+
+            System.out.println (englishtoMorse(english));
+
+        }
+
+        else
+
+        {
+
+            Scanner morsetoenglish = new Scanner(System.in);
+
+                System.out.println ("Please enter an original sentence in morse code.");
+
+                String morse = morsetoenglish.nextLine();
+
+            System.out.println (morsetoEnglish(morse));
+
+             
+
+        }
+
+         
+
+    }
+
+    public static String englishtoMorse(String english)
+
+    {
+
+        String alphabet = "ABC DEFGHIJKLMNOPQRSTUVWXYZ";
+
+        String code[] =  {".-", "-...", "-.-/>.", "|", "-..",".","..-.","--.", "....",
+
+            "..", ".---", "-.-/>", ".-..", "--","- .", "---", ".--.", "--.-/>", ".-.",
+
+            "...", "-", "..-", "...-", ".--", "-..-", "-.-/>-", "--.."};
+
+        english = english.toUpperCase();
+
+        for(int xyz = 0; xyz < english.length(); ++xyz)
+
+        {
+
+            char letter = english.charAt(xyz);
+
+            if (letter == ' ')
+
+            {
+
+                System.out.print ("|");
+
+                continue;
+
+            }
+
+            for(int variable = 0; variable < alphabet.length(); ++variable)
+
+            {
+
+                if(alphabet.charAt(variable) == letter)
+
+                {
+
+                    System.out.print(code[variable] + " ");
+
+                    break;
+
+                }
+
+            }
+
+        }
+
+        return " ";
+
+    }
+
+    public static String morsetoEnglish(String morse)
+
+    {
+
+        String alphabet[] = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "};
+            
+
+
+        String code[] =  {".-", "-...", "-.-/>.", "|", "-..",".","..-.","--.", "....",
+
+            "..", ".---", "-.-/>", ".-..", "--","- .", "---", ".--.", "--.-/>", ".-.",
+
+            "...", "-", "..-", "...-", ".--", "-..-", "-.-/>-", "--.."};
+
+        for(int xyz = '0'; xyz < code.length; ++xyz)
+
+            for (int i = 0; i < morse.length(); i++) { 
+
+               char letter = Character.toUpperCase(morse.charAt(i)); 
+
+                  String word = code[letter = 'A']; 
+
+                  System.out.print(alphabet[i]+ "."); 
+
+               }
+
+               return " "; 
+
+    }
+
+}
+
+
